@@ -1,38 +1,151 @@
 .App {
-  text-align: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif, -apple-system, Tahoma;
+    font-size: x-large;
+    margin-top: 2em;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border: 2px solid wheat;
+
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.footer {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button {
+    border-radius: 6px;
 }
 
-.App-link {
-  color: #61dafb;
+input {
+    border-radius: 6px;
+    border: 1px solid black;
+    height: 2em;
+    padding: 4px;
+    width: 75%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.singleItem {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    border: 1px solid wheat;
+    width: 100%;
+}
+
+
+
+
+
+button:hover {
+    background-color: wheat;
+    cursor: pointer;
+}
+
+.List {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+
+}
+
+.List > div {
+    width: 100%;
+}
+
+
+input[type="checkbox"] {
+    font-size: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 1em;
+    height: 0.5em;
+    background: #ddd;
+    border-radius: 3em;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+input[type="checkbox"]:checked{
+    background: #0ebeff;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+input[type="checkbox"]:after{
+    position: absolute;
+    content: "";
+    margin-top: -5px;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
+    box-shadow: 0 0 .25em rgba(0,0,0,.3);
+    -webkit-transform: scale(.7);
+    transform: scale(.7);
+    left: 0;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+input[type="checkbox"]:checked:after{
+    left: calc(100% - 0.5em);
+}
+
+
+button {
+    background: #0eb9f9;
+    border: 1px solid #0eb9f9;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 0.5em;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 35px;
+    outline: 0;
+    padding: 1px 10px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    margin-left: auto;
+}
+
+button:hover,
+button:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #1646e0;
+}
+
+button:active {
+    opacity: .5;
 }

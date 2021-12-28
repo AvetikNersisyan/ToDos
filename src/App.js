@@ -1,25 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
+import ToDoList from "./ToDoList";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [todo, setTodo] = useState([
+        {text: "Learn React", id: Math.random(), completed: false},
+        {text: "Go shopping", id: Math.random(), completed: false},
+        {text: "Start new Project", id: Math.random(), completed: false},
+    ]);
+
+    const onAdd = (text) => {
+        setTodo([
+            ...todo,
+            {text: text, id: Math.random(), completed: false}
+        ]);
+    };
+
+    return (
+        <div className="App">
+            <ToDoList
+                onChange={(newTodo) => setTodo(todo.map(todo => {
+                    if (todo.id === newTodo.id) return newTodo;
+                    return todo;
+                }))}
+                todo={todo} onAdd={onAdd} length={todo.length} completed={todo.filter(item => item.completed).length}
+                onClear={() => {
+                    setTodo(todo.filter(item => !item.completed));
+                }}
+                onDelete={(t) => setTodo(todo.filter(item => item.id !== t.id))}
+            />
+        </div>
+    );
 }
 
 export default App;
